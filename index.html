@@ -1,7 +1,50 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>check 2</h1>
-<p>check 2.</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lachlan Kassis | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-900 font-sans">
+    <header class="p-6 border-b shadow-sm">
+      <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Lachlan Kassis</h1>
+        <nav class="space-x-4">
+          <a href="#projects" class="hover:underline">Projects</a>
+          <a href="#about" class="hover:underline">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-10">
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects">
+          <!-- Project Card Example -->
+          <div class="border rounded-2xl shadow p-4">
+            <h3 class="text-xl font-semibold">Hardcore Minecraft Plugin</h3>
+            <p class="mt-2 text-sm">
+              A custom Spigot plugin where one player’s death resets the entire server. Includes world handling, shared damage, attempt tracking, and Discord integration.
+            </p>
+          </div>
+          <!-- Add more project cards here -->
+        </div>
+      </section>
+
+      <section class="mb-16" id="about">
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+        <p class="text-sm max-w-2xl">
+          TEMPLATE TEST
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2 class="text-3xl font-bold mb-4">Contact</h2>
+        <p class="text-sm">
+          GitHub: <a href="https://github.com/lachyman22" class="text-blue-600 hover:underline">@lachyman22</a>
+        </p>
+      </section>
+    </main>
+  </body>
 </html>
