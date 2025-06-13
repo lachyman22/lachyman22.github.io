@@ -3,75 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lachlan Kassis | Portfolio</title>
+    <title>KassisOS Snow Leopard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css" />
   </head>
-  <body class="bg-white text-gray-900 font-sans">
-    <header class="p-6 border-b shadow-sm">
-      <div class="max-w-5xl mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Lachlan Kassis</h1>
-        <nav class="space-x-4">
-          <a href="#projects" class="hover:underline">Projects</a>
-          <a href="#about" class="hover:underline">About</a>
-        </nav>
+  
+  <body>
+    <div id="menu-bar">
+      <div class="menu-left">
+        <div class="menu-item">
+          <img src="assets/apple-logo.png" alt="Apple" class="h-5 w-5 mt-[-1px] menu-icon" />
+        </div>
+        <div class="menu-item font-bold">Lachlan Kassis</div>
+        <div class="menu-item">Github (University)</div>
+        <div class="menu-item">Github (Personal)</div>
+        <div class="menu-item">Resume</div>
+        <div class="menu-item">Contact</div>
       </div>
-    </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-10">
-      <section class="mb-16">
-        <h2 class="text-3xl font-bold mb-4">Featured Projects [SITE HEAVY WORK IN PROGRESS]</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects">
-          <!-- Project Card 1 -->
-          <div class="border rounded-2xl shadow p-4">
-            <h3 class="text-xl font-semibold">Hardcore Minecraft Plugin</h3>
-            <p class="mt-2 text-sm">
-              A custom Spigot plugin where one player’s death resets the entire server. Includes world handling, shared damage, attempt tracking, and Discord integration.
-            </p>
-            <a href="https://google.com/" class="text-blue-600 hover:underline text-sm inline-block mt-3">hyperlink test</a>
-          </div>
+      <div class="menu-right">
+        <span id="menu-time">Fri 12:42 PM</span>
+      </div>
+    </div>
+    
+    <script src="scripts/time.js"></script>
 
-          <!-- Project Card 2 -->
-          <div class="border rounded-2xl shadow p-4">
-            <h3 class="text-xl font-semibold">Project CO-OP</h3>
-            <p class="mt-2 text-sm">
-              A Showcase Nominated 3D Game made in Unity where chickens rise up and take back the farm. 
-            </p>
-            <a href="https://maximumtab.itch.io/project-co-op" class="text-blue-600 hover:underline text-sm inline-block mt-3">View in itch.io</a>
-          </div>
+    <div id="dock">
+      <img src="assets/dock/scurve-xl.png" alt="Dock Background" id="dock-bg" />
+      <div id="dock-icons">
 
-          <!-- Project Card 3 -->
-          <div class="border rounded-2xl shadow p-4">
-            <h3 class="text-xl font-semibold">To the Moon</h3>
-            <p class="mt-2 text-sm">
-              A showcase nominated animated short about a boy and his dog building a cardboard rocket and flying into space through imagination.
-            </p>
-            <a href="#" class="text-blue-600 hover:underline text-sm inline-block mt-3">Watch animation</a>
-          </div>
-          <!-- Project Card 3 -->
-          <div class="border rounded-2xl shadow p-4">
-            <h3 class="text-xl font-semibold">PROJECT 4</h3>
-            <p class="mt-2 text-sm">
-              fourth project goes here either computer graphics final or something i make.
-            </p>
-            <a href="#" class="text-blue-600 hover:underline text-sm inline-block mt-3">no link</a>
-          </div>
+        <div class="dock-item">
+          <div class="dock-label">C#</div>
+          <img src="assets/dockicons/csharp.png" alt="C#" class="dock-icon" />
+          <img src="assets/dockicons/csharp.png" alt="C# Reflection" class="dock-reflection" />
+        </div>
+
+        <div class="dock-item">
+          <div class="dock-label">Python</div>
+          <img src="assets/dockicons/python.png" alt="Python" class="dock-icon" />
+          <img src="assets/dockicons/python.png" alt="Python Reflection" class="dock-reflection" />
+        </div>
+
+        <div class="dock-item">
+          <div class="dock-label">HTML/CSS</div>
+          <img src="assets/dockicons/htmlcss.png" alt="HTML/CSS" class="dock-icon" />
+          <img src="assets/dockicons/htmlcss.png" alt="HTML/CSS Reflection" class="dock-reflection" />
+        </div>
+
+        <div class="dock-item">
+          <div class="dock-label">Unity</div>
+          <img src="assets/dockicons/unity.png" alt="Unity" class="dock-icon" />
+          <img src="assets/dockicons/unity.png" alt="Unity Reflection" class="dock-reflection" />
+        </div>
+
+        <div class="dock-item">
+          <div class="dock-label">SQL</div>
+          <img src="assets/dockicons/sql.png" alt="SQL" class="dock-icon" />
+          <img src="assets/dockicons/sql.png" alt="SQL Reflection" class="dock-reflection" />
+        </div>
+
+        <div class="dock-item">
+          <div class="dock-label">Trello</div>
+          <img src="assets/dockicons/trello.png" alt="Trello" class="dock-icon" />
+          <img src="assets/dockicons/trello.png" alt="Trello Reflection" class="dock-reflection" />
+        </div>
+
+        <div class="dock-item">
+          <div class="dock-label">Office</div>
+          <img src="assets/dockicons/office.png" alt="Office" class="dock-icon" />
+          <img src="assets/dockicons/office.png" alt="Office Reflection" class="dock-reflection" />
+        </div>
+
+        <div class="dock-item">
+          <div class="dock-label">Unreal Engine</div>
+          <img src="assets/dockicons/unreal.png" alt="Unreal Engine" class="dock-icon" />
+          <img src="assets/dockicons/unreal.png" alt="Unreal Engine Reflection" class="dock-reflection" />
         </div>
       </div>
-      </section>
+  </div>
 
-      <section class="mb-16" id="about">
-        <h2 class="text-3xl font-bold mb-4">About Me</h2>
-        <p class="text-sm max-w-2xl">
-          TEMPLATE TEST
-        </p>
-      </section>
+  <div id="window-container"></div>
 
-      <section id="contact">
-        <h2 class="text-3xl font-bold mb-4">Contact</h2>
-        <p class="text-sm">
-          GitHub: <a href="https://github.com/lachyman22" class="text-blue-600 hover:underline">@lachyman22</a>
-        </p>
-      </section>
-    </main>
+  <script src="scripts/dockhover.js"></script>
+
+  <script src="scripts/windows.js"></script>
   </body>
 </html>

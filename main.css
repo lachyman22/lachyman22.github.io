@@ -1,0 +1,219 @@
+@font-face {
+  font-family: 'Lucida Grande';
+  src: url('../assets/LucidaGrande.ttf') format('truetype');
+}
+
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Lucida Grande', sans-serif;
+  background-image: url('../assets/snow-leopard-wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  background: url('../assets/menu-bar.png') repeat-x top;
+  background-size: auto 22px;
+  z-index: 50;
+  font-size: 13px;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+.menu-item {
+  padding: 0 6px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.menu-item:hover {
+  background: url('../assets/menu-selected.png') repeat-x;
+  background-size: auto 22px;
+  color: white;
+}
+
+.menu-item:hover .menu-icon {
+  filter: brightness(0) invert(1);
+}
+
+.menu-left,
+.menu-right {
+  display: flex;
+  align-items: center;
+}
+
+.menu-right img {
+  margin-left: 6px;
+  height: 14px;
+}
+
+.menu-right span {
+  margin-left: 6px;
+  user-select: none;
+}
+
+#dock-bg {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) perspective(1000px) rotateX(29deg);
+  transform-origin: bottom;
+  height: 80px;              /* your fixed image height */
+  width: 100%;
+  max-width: 1000px;            /* prevent overflow */   
+  pointer-events: none;
+  filter: brightness(1.2) contrast(1.1) opacity(0.99);
+  z-index: 0;
+  transition: max-width 0.2s ease;
+  object-fit: none; /* prevents height distortion */
+}
+
+
+#dock-icons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  pointer-events: auto;
+  overflow: visible;
+  z-index: 2;
+  
+}
+
+.dock-item {
+  position: relative;
+  width: 64px;
+  height: auto;
+  overflow: visible;
+  transition: margin 0.15s ease-out;
+}
+
+.dock-icon {
+  height: 64px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+  pointer-events: auto;
+  transition: transform 0.05s ease-out;
+  transform-origin: bottom;
+  z-index: 2;
+}
+
+
+.dock-reflection {
+  position: absolute;
+  top: 64px; /* directly under icon */
+  left: 0;
+  width: 64px;
+  height: 64px; /* same as original icon */
+  transform: scaleY(-1);
+  opacity: 0.3;
+  pointer-events: none;
+  filter: blur(0.5px);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.3) 33%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.3) 33%, transparent 100%);
+}
+
+.dock-label {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0px); /* higher off the icon */
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.dock-item:hover .dock-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-50px); /* lift even more on hover */
+}
+
+.window {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 400px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  resize: both;
+}
+
+.window-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* align left */
+  gap: 8px;
+  padding: 6px 10px;
+  cursor: move;
+  user-select: none;
+  background: url('../assets/window-header.png') repeat-x;
+  height: 22px;
+}
+
+.window-close,
+.window-minimize,
+.window-zoom {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.window-title {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: normal;
+  color: black;
+  line-height: 22px;
+  user-select: none;
+  pointer-events: none;
+  transform: translateX(-18px); /* adjusts for left-side buttons visually */
+}
+
+.window-close { background: #ff5f57; }
+.window-minimize { background: #ffbd2e; }
+.window-zoom { background: #28c840; }
+
+.window-content {
+  flex: 1;
+  padding: 10px;
+  overflow: auto;
+  font-size: 14px;
+}
