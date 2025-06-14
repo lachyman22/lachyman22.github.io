@@ -12,30 +12,33 @@
 >
   <div style="flex: 1; min-width: 150px">
     <h2 style="font-size: 16px; margin-top: 0">
-      <strong>RE: Chicken [2025]</strong>
+      <strong>AI Navigation System [2024]</strong>
     </h2>
-    <p><i>Student Project - Game Design Studio 1</i></p>
-    <p>&nbsp;</p>
-    <p>
-      A chaotic and playful action-adventure where you play as a rebellious
-      chicken, taking back the farm from invading enemies and gearing up for a
-      final boss fight against a cunning cat. Players explore a semi-open world,
-      take on multiple bosses, and choose from different combat classes.
-    </p>
+    <p><i>Student Project – Advanced Games Programming</i></p>
     <p>&nbsp;</p>
     <p><strong>My Contributions:</strong></p>
     <ul style="list-style-type: disc; padding-left: 1.2em">
       <li>
-        Boss Design: Designed the fan-favourite Lawnmower boss, focusing on
-        clear telegraphs and heavy, dodgeable attacks to reward player skill.
+        Implemented custom <code>Navigation and Cover Node</code> actor class in
+        C++ to create a connected node graph for AI traversal.
       </li>
       <li>
-        UI Programming: Implemented gameplay UI systems including health bars,
-        cooldown indicators, and skill menus.
+        Built logic for enemies to path between connected nodes, choose random
+        patrol paths, or chase the player using node-based line-of-sight.
       </li>
       <li>
-        Input Implementation: Added support for keyboard + mouse and controllers
-        with seamless switching.
+        Wrote C++ systems for finding the nearest viable cover node based on
+        distance and visibility when the AI is in an “injured” or “evading”
+        state.
+      </li>
+      <li>
+        Created a multiplayer-safe C++ state machine with network-replicated
+        transitions for modes like <code>Patrol</code>, <code>Evade</code>,
+        <code>Hiding</code>, and <code>Dead</code>.
+      </li>
+      <li>
+        Integrated AI state and health info with the enemy HUD to reflect live
+        combat status, ammo counts, and regeneration state.
       </li>
     </ul>
 
@@ -51,8 +54,8 @@
           text-decoration: none;
         "
         target="_blank"
-        href="https://maximumtab.itch.io/project-co-op"
-        ><strong>Itch.io Page</strong></a
+        href="https://www.youtube.com/watch?v=k0kQQklXzSo"
+        ><strong>Demo Video</strong></a
       >
       <a
         style="
@@ -64,16 +67,13 @@
           text-decoration: none;
         "
         target="_blank"
-        href="https://github.com/MaximumTab/Project-Co-op"
-        ><strong>Github Repo</strong></a
+        href="https://github.com/vesanii/agp-ass4"
+        ><strong>GitHub Repo</strong></a
       >
     </div>
 
     <div style="margin-top: 12px">
-      <i
-        >Made in collaboration with Zena Stanbouli, Maxim Tabachuk, Jay Byrne,
-        and Arie Gerhardus Oberholzer</i
-      >
+      <i>Developed in collaboration with Hidra Danial</i>
     </div>
   </div>
 
@@ -88,13 +88,13 @@
     "
   >
     <img
-      src="assets/projects/chicken1.png"
-      alt="RE: Chicken Screenshot"
+      src="assets/projects/ainav1.png"
+      alt="AI Navigation Screenshot"
       style="width: 100%; max-width: 100%; height: auto; border-radius: 8px"
     />
     <img
-      src="assets/projects/chicken2.png"
-      alt="RE: Chicken Screenshot"
+      src="assets/projects/ainav2.png"
+      alt="AI State System Screenshot"
       style="width: 100%; max-width: 100%; height: auto; border-radius: 8px"
     />
   </div>
