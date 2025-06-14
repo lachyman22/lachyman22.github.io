@@ -87,9 +87,9 @@ function spawnWindow(title) {
   document.addEventListener("mouseup", () => isDragging = false);
 
     const safeTitle = title.trim().toLowerCase().replace(/[^a-z0-9]/gi, '');
-  const contentDiv = win.querySelector(".window-content");
+    const contentDiv = win.querySelector(".window-content");
 
-  fetch(`windows/${safeTitle}.html`)
+    fetch(`windows/${safeTitle}.html`)
     .then(res => res.ok ? res.text() : Promise.reject("404"))
     .then(html => contentDiv.innerHTML = html)
     .catch(() => contentDiv.innerHTML = `<p><strong>${title}</strong> content not found.</p>`);
