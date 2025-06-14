@@ -9,22 +9,60 @@
   </head>
   
   <body>
+    <script src="scripts/menubar.js"></script>
     <div id="menu-bar">
-      <div class="menu-left">
-        <div class="menu-item">
-          <img src="assets/apple-logo.png" alt="Apple" class="h-6 w-6 mt-[-2px] menu-icon" />
-        </div>
-        <div class="menu-item font-bold">Lachlan Kassis</div>
-        <div class="menu-item">Github (University)</div>
-        <div class="menu-item">Github (Personal)</div>
-        <div class="menu-item">Resume</div>
-        <div class="menu-item">Contact</div>
+    <div class="menu-left" id="menu-left">
+      <div class="menu-item">
+        <img src="assets/apple-logo.png" alt="Apple" class="h-6 w-6 mt-[-2px] menu-icon" />
       </div>
+
+      <div class="menu-item font-bold">Lachlan Kassis</div>
+
+      <div class="menu-item dropdown-trigger" data-menu="github">Github</div>
+      <div class="menu-item dropdown-trigger" data-menu="resume">Resume</div>
+      <div class="menu-item dropdown-trigger" data-menu="contact">Contact</div>
+    </div>
+
+    <!-- Dropdown Menus -->
+    <div id="dropdown-github" class="dropdown-menu">
+      <div class="dropdown-item" onclick="window.open('https://github.com/lachyman22', '_blank')">
+        Personal
+        <img src="assets/newtab.png" class="shortcut-icon" alt="↗" />
+      </div>
+      <div class="dropdown-item" onclick="window.open('https://github.com/24801831-lkassis', '_blank')">
+        University
+        <img src="assets/newtab.png" class="shortcut-icon" alt="↗" />
+      </div>
+    </div>
+
+    <div id="dropdown-resume" class="dropdown-menu">
+      <div class="dropdown-item" onclick="window.open('assets/resume.pdf', '_blank')">
+        Open PDF
+        <img src="assets/newtab.png" class="shortcut-icon" alt="↗" />
+      </div>
+    </div>
+
+    <div id="dropdown-contact" class="dropdown-menu">
+      <div class="dropdown-item copyable" data-copy="lachyman22@gmail.com">
+        lachyman22@gmail.com
+        <img src="assets/copy.png" class="shortcut-icon" alt="Copy" />
+      </div>
+      <div class="dropdown-item copyable" data-copy="lachlan.kassis@student.uts.edu.au">
+        lachlan.kassis@student.uts.edu.au
+        <img src="assets/copy.png" class="shortcut-icon" alt="Copy" />
+      </div>
+      <div class="dropdown-item copyable" data-copy="lachyman">
+        Discord: lachyman
+        <img src="assets/copy.png" class="shortcut-icon" alt="Copy" />
+      </div>
+    </div>
 
       <div class="menu-right">
         <span id="menu-time">Fri 12:42 PM</span>
       </div>
     </div>
+    <div id="copy-feedback" class="copy-feedback"></div>
+
     
     <script src="scripts/time.js"></script>
     

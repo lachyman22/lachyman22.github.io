@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Expose this globally so icons.js can use it
 function spawnWindow(title) {
   const container = document.getElementById("window-container");
 

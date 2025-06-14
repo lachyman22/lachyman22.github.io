@@ -2,20 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const icons = document.querySelectorAll('.desktop-icon');
 
   icons.forEach(icon => {
-    // Double-click to open window
     icon.addEventListener('dblclick', () => {
       const title = icon.dataset.title;
       spawnWindow(title);
     });
 
-    // Single-click to select
     icon.addEventListener('click', (e) => {
       document.querySelectorAll('.desktop-icon').forEach(i => i.classList.remove('selected'));
       icon.classList.add('selected');
-      e.stopPropagation(); // prevents deselect from global click handler
+      e.stopPropagation(); 
     });
 
-    // Dragging
     let isDragging = false;
     let offsetX = 0, offsetY = 0;
 
@@ -39,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Deselect all when clicking on empty desktop
   document.addEventListener('click', () => {
     document.querySelectorAll('.desktop-icon').forEach(i => i.classList.remove('selected'));
   });

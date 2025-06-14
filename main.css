@@ -46,13 +46,13 @@ html, body {
   font-weight: normal;
 }
 
-.menu-item:hover {
+.menu-item.menu-open {
   background: url('../assets/menu-selected.png') repeat-x;
   background-size: auto 35px;
   color: white;
 }
 
-.menu-item:hover .menu-icon {
+.menu-item.menu-open .menu-icon {
   filter: brightness(0) invert(1);
 }
 
@@ -312,4 +312,95 @@ html, body {
 
 .desktop-icon.selected .label-bg {
   background: rgba(0, 120, 255, 0.9);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  background: white;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  min-width: 180px;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  padding: 4px 0;
+  font-size: 13px;
+  font-weight: normal;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.dropdown-item {
+  padding: 6px 16px 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  color: black;
+  background-color: white;
+  cursor: default;
+  min-width: 180px;
+}
+
+.dropdown-item:hover {
+  background-color: #0060df;
+  color: white;
+}
+
+.shortcut-icon {
+  color: #666;
+  font-size: 12px;
+  margin-left: 12px;
+}
+
+.dropdown-item:hover .shortcut-icon {
+  color: white;
+}
+
+.shortcut-icon {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  margin-left: 2px;
+}
+
+.dropdown-item:hover .shortcut-icon {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.dropdown-item.copied {
+  position: relative;
+}
+
+.dropdown-item.copied::after {
+  content: 'Copied!';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 11px;
+  pointer-events: none;
+  animation: fadeOut 1s ease forwards;
+  background: white;
+  padding: 0 4px;
+}
+
+.copy-feedback {
+  position: absolute;
+  top: 30px;
+  left: 160px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 12px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
 }

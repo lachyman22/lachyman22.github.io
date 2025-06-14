@@ -1,9 +1,9 @@
 function updateMenuTime() {
   const now = new Date();
 
-  const weekday = now.toLocaleString('en-US', { weekday: 'short' }); // e.g. Fri
-  const month = now.toLocaleString('en-US', { month: 'short' });     // e.g. Jun
-  const day = now.getDate();                                         // e.g. 13
+  const weekday = now.toLocaleString('en-US', { weekday: 'short' }); 
+  const month = now.toLocaleString('en-US', { month: 'short' });     
+  const day = now.getDate();                                         
 
   let hours = now.getHours();
   const minutes = now.getMinutes().toString().padStart(2, '0');
