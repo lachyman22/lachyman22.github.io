@@ -86,7 +86,7 @@ function spawnWindow(title) {
 
   document.addEventListener("mouseup", () => isDragging = false);
 
-  const safeTitle = title.replace(/[^a-z0-9]/gi, '_');
+    const safeTitle = title.trim().toLowerCase().replace(/[^a-z0-9]/gi, '');
   const contentDiv = win.querySelector(".window-content");
 
   fetch(`windows/${safeTitle}.html`)
