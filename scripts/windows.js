@@ -113,7 +113,7 @@ function spawnWindow(title, width = 500, height = 300, top = null, left = null) 
     .replace(/[^a-z0-9]/gi, "");
   const contentDiv = win.querySelector(".window-content");
 
-  fetch(`windows/${safeTitle}.html`)
+  fetch(`windows/${safeTitle}.html?v=1.0.1`)
     .then((res) => (res.ok ? res.text() : Promise.reject("404")))
     .then((html) => (contentDiv.innerHTML = html))
     .catch(
