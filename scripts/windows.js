@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function spawnWindow(title) {
+function spawnWindow(title, width = 500) {
   const container = document.getElementById("window-container");
 
   const win = document.createElement("div");
@@ -29,6 +29,9 @@ function spawnWindow(title) {
 
   const header = win.querySelector(".window-header");
   win.style.minHeight = `23px`;
+  win.style.minWidth = `200px`;
+  win.style.width = `${width}px`;
+
 
   win.querySelectorAll(".window-btn").forEach(btn => {
     const original = btn.getAttribute("data-src");

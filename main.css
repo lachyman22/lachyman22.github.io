@@ -243,7 +243,7 @@ html, body {
 
 .desktop-icon {
   position: absolute;
-  width: 64px;
+  width: 120px;
   text-align: center;
   color: white;
   font-size: 13px;
@@ -252,9 +252,9 @@ html, body {
 }
 
 .selection-wrapper {
-  position: relative;
-  width: 64px;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .desktop-icon img {
@@ -268,17 +268,19 @@ html, body {
 
 .icon-bg {
   position: absolute;
-  top: -10px;
-  left: -10px;
+  top: -9px;
+  left: 50%; /* add this */
+  transform: translateX(-50%); /* and this */
   width: 84px;
   height: 84px;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 6px; /* less round, more squared */
+  border-radius: 6px;
   box-sizing: border-box;
   display: none;
   z-index: 1;
 }
+
 
 
 
@@ -289,7 +291,7 @@ html, body {
   border-radius: 12px;
   background: transparent;
   margin-top: 12px;
-  max-width: 80px;
+  max-width: 120px;
   text-align: center;
   position: relative;
   z-index: 2;

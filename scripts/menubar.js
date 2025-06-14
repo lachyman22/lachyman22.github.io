@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const triggers = document.querySelectorAll('.dropdown-trigger');
   const menus = {
     github: document.getElementById('dropdown-github'),
-    resume: document.getElementById('dropdown-resume'),
+    prof: document.getElementById('dropdown-prof'),
     contact: document.getElementById('dropdown-contact'),
   };
 
