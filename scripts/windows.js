@@ -11,14 +11,70 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function spawnWindow(title, width = 500, height = 300, top = null, left = null) {
+function spawnWindow(
+  title,
+  width = 500,
+  height = 300,
+  top = null,
+  left = null
+) {
+  const isMobile = window.innerWidth <= 1000;
+  if (isMobile) {
+    const container = document.getElementById("window-container");
+    if (isMobile) {
+      document.querySelectorAll(".window").forEach((win) => win.remove());
+    }
+    const mobileWin = document.createElement("div");
+    mobileWin.className = "window mobile-window"; 
+    mobileWin.style.top = `70px`;
+    mobileWin.style.left = `5%`;
+    mobileWin.style.width = `90%`;
+    mobileWin.style.height = `70vh`;
+    mobileWin.style.zIndex = ++highestZ;
+
+    mobileWin.innerHTML = `
+      <div class="window-header mobile-header">
+        <div class="window-title">${title}</div>
+        <button class="btn-close-mobile">×</button>
+      </div>
+      <div class="window-content">Loading...</div>
+    `;
+
+    mobileWin
+      .querySelector(".btn-close-mobile")
+      .addEventListener("click", () => {
+        mobileWin.remove();
+      });
+
+    const contentDiv = mobileWin.querySelector(".window-content");
+    const safeTitle = title
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, "");
+
+    fetch(`windows/${safeTitle}.html?v=1.1`)
+      .then((res) => (res.ok ? res.text() : Promise.reject("404")))
+      .then((html) => (contentDiv.innerHTML = html))
+      .catch(
+        () =>
+          (contentDiv.innerHTML = `<p><strong>${title}</strong> content not found.</p>`)
+      );
+
+    container.appendChild(mobileWin);
+    return; // skip the rest of the spawnWindow logic
+  }
   const container = document.getElementById("window-container");
 
   const win = document.createElement("div");
   win.className = "window";
-  win.style.top = top !== null ? `${top}px` : `${100 + Math.random() * 200}px`;
-  win.style.left = left !== null ? `${left}px` : `${100 + Math.random() * 200}px`;
+  const defaultTop = top !== null ? top : 100 + Math.random() * 200;
+  const defaultLeft = left !== null ? left : 100 + Math.random() * 200;
 
+  const maxTop = window.innerHeight - height - 20;
+  const maxLeft = window.innerWidth - width - 20;
+
+  win.style.top = `${Math.min(Math.max(26, defaultTop), maxTop)}px`;
+  win.style.left = `${Math.min(Math.max(0, defaultLeft), maxLeft)}px`;
 
   highestZ++;
   win.style.zIndex = highestZ;
@@ -113,7 +169,7 @@ function spawnWindow(title, width = 500, height = 300, top = null, left = null) 
     .replace(/[^a-z0-9]/gi, "");
   const contentDiv = win.querySelector(".window-content");
 
-  fetch(`windows/${safeTitle}.html?v=1.0.1`)
+  fetch(`windows/${safeTitle}.html?v=1.1`)
     .then((res) => (res.ok ? res.text() : Promise.reject("404")))
     .then((html) => (contentDiv.innerHTML = html))
     .catch(
@@ -181,5 +237,5 @@ function spawnWindow(title, width = 500, height = 300, top = null, left = null) 
 window.spawnWindow = spawnWindow;
 
 document.addEventListener("DOMContentLoaded", () => {
-  spawnWindow("About", 1000, 635, 100, 80);
+  spawnWindow("About", 900, 635, 100, 80);
 });

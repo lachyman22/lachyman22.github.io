@@ -33,8 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       closeMenus();
 
-      menu.style.left = `${rect.left}px`;
+      const menuWidth = menu.offsetWidth || 180;
+      let left = rect.left;
+
+      const padding = 16;
+      const maxLeft = window.innerWidth - menuWidth - padding;
+      if (left > maxLeft) {
+        left = Math.max(padding, maxLeft - 90); // extra nudge left
+      }
+
+      menu.style.left = `${left}px`;
       menu.style.top = `${rect.bottom}px`;
+
       menu.style.display = "block";
       trigger.classList.add("menu-open");
       openMenu = menu;
@@ -44,20 +54,27 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".copyable").forEach((item) => {
     item.addEventListener("click", (e) => {
       const text = item.dataset.copy;
-      navigator.clipboard.writeText(text).then(() => {
-        const feedback = document.getElementById("copy-feedback");
-        feedback.textContent = `Copied!`;
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          const feedback = document.getElementById("copy-feedback");
+          feedback.textContent = `Copied!`;
 
-        const rect = item.getBoundingClientRect();
-        feedback.style.left = `${rect.right + 8}px`;
-        feedback.style.top = `${rect.top}px`;
-        feedback.style.opacity = "1";
+          const rect = item.getBoundingClientRect();
+          const safeLeft = Math.min(rect.right + 8, window.innerWidth - 100);
+          const safeTop = Math.max(rect.top, 40);
+          feedback.style.left = `${safeLeft}px`;
+          feedback.style.top = `${safeTop}px`;
+          feedback.style.opacity = "1";
 
-        clearTimeout(feedback._timeout);
-        feedback._timeout = setTimeout(() => {
-          feedback.style.opacity = "0";
-        }, 1000);
-      });
+          clearTimeout(feedback._timeout);
+          feedback._timeout = setTimeout(() => {
+            feedback.style.opacity = "0";
+          }, 1000);
+        })
+        .catch(() => {
+          alert("Copy failed – your browser may not support it.");
+        });
 
       e.stopPropagation(); // don't close dropdown immediately
     });
