@@ -52,7 +52,7 @@ function spawnWindow(
       .toLowerCase()
       .replace(/[^a-z0-9]/gi, "");
 
-    fetch(`windows/${safeTitle}.html?v=1.1`)
+    fetch(`windows/${safeTitle}.html?v=1.1.1`)
       .then((res) => (res.ok ? res.text() : Promise.reject("404")))
       .then((html) => (contentDiv.innerHTML = html))
       .catch(
@@ -169,7 +169,7 @@ function spawnWindow(
     .replace(/[^a-z0-9]/gi, "");
   const contentDiv = win.querySelector(".window-content");
 
-  fetch(`windows/${safeTitle}.html?v=1.1`)
+  fetch(`windows/${safeTitle}.html?v=1.1.1`)
     .then((res) => (res.ok ? res.text() : Promise.reject("404")))
     .then((html) => (contentDiv.innerHTML = html))
     .catch(
